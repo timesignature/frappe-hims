@@ -1,0 +1,130 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "PRE-.########",
+ "creation": "2026-04-06 17:33:52.377347",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_information_section",
+  "episode_no",
+  "patient_no",
+  "status",
+  "column_break_zzon",
+  "patient_name",
+  "date_created",
+  "notes_section",
+  "notes",
+  "lines_section",
+  "items",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_information_section",
+   "fieldtype": "Section Break",
+   "label": "General Information"
+  },
+  {
+   "fieldname": "episode_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Episode No",
+   "options": "Episode",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "episode_no.patient_no",
+   "fieldname": "patient_no",
+   "fieldtype": "Data",
+   "label": "Patient No"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nOpen\nDispensed\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_zzon",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "episode_no.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name"
+  },
+  {
+   "fieldname": "date_created",
+   "fieldtype": "Datetime",
+   "label": "Date Created",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "lines_section",
+   "fieldtype": "Section Break",
+   "label": "Lines"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "items",
+   "options": "Prescription Lines",
+   "reqd": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Prescription",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-07 09:39:30.581136",
+ "modified_by": "Administrator",
+ "module": "Hims",
+ "name": "Prescription",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

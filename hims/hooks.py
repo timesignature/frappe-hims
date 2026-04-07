@@ -1,9 +1,16 @@
+import frappe
+import hims.utils
+
 app_name = "hims"
 app_title = "Hims"
 app_publisher = "Shelton Tembo"
 app_description = "Hospital Management System"
 app_email = "sheltontembo@gmail.com"
 app_license = "mit"
+app_include_js = "/assets/hims/js/orm.js"
+
+
+frappe.ref = hims.utils.ref
 
 # Apps
 # ------------------
@@ -252,4 +259,3 @@ require_type_annotated_api_methods = True
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-

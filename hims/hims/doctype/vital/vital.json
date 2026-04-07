@@ -1,0 +1,182 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "VIT-.######",
+ "creation": "2026-04-06 11:12:44.442620",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_information_section",
+  "episode_no",
+  "patient_no",
+  "column_break_qite",
+  "patient_name",
+  "date_created",
+  "primary_vital_signs_section",
+  "body_temperature",
+  "column_break_nskm",
+  "pulse",
+  "respiratory_rate",
+  "other_vital_signs_section",
+  "blood_pressure",
+  "weight",
+  "height",
+  "column_break_sxzs",
+  "oxygen_saturation",
+  "pain_level",
+  "level_of_consciousness",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "episode_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Episode No",
+   "options": "Episode",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "episode_no.patient_no",
+   "fieldname": "patient_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Patient No",
+   "options": "Patient",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "episode_no.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name"
+  },
+  {
+   "description": "Measures the body's ability to create and rid itself of heat. Normal range is typically 36.5\u00b0C to 37.3\u00b0C (97.8\u00b0F to 99.1\u00b0F).",
+   "fieldname": "body_temperature",
+   "fieldtype": "Data",
+   "label": "Body Temperature"
+  },
+  {
+   "description": "The force of blood against artery walls. Normal is generally less than 120/80 mmHg.",
+   "fieldname": "blood_pressure",
+   "fieldtype": "Data",
+   "label": "Blood Pressure"
+  },
+  {
+   "description": "The number of times the heart beats per minute. A normal resting adult rate is 60 to 100 beats per minute (bpm).",
+   "fieldname": "pulse",
+   "fieldtype": "Data",
+   "label": "Pulse"
+  },
+  {
+   "description": "The number of breaths taken per minute. A normal resting adult rate is 12 to 20 breaths per minute.",
+   "fieldname": "respiratory_rate",
+   "fieldtype": "Data",
+   "label": "Respiratory Rate"
+  },
+  {
+   "description": "Measured via pulse oximetry, it shows the percentage of oxygen in the blood. Normal levels are typically 95% to 100%.",
+   "fieldname": "oxygen_saturation",
+   "fieldtype": "Data",
+   "label": "Oxygen Saturation"
+  },
+  {
+   "fieldname": "general_information_section",
+   "fieldtype": "Section Break",
+   "label": "General Information"
+  },
+  {
+   "fieldname": "column_break_qite",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "primary_vital_signs_section",
+   "fieldtype": "Section Break",
+   "label": "Primary Vital Signs"
+  },
+  {
+   "fieldname": "column_break_nskm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "other_vital_signs_section",
+   "fieldtype": "Section Break",
+   "label": "Other Vital Signs"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Data",
+   "label": "Weight"
+  },
+  {
+   "fieldname": "height",
+   "fieldtype": "Data",
+   "label": "Height"
+  },
+  {
+   "description": "often considered the \"fifth vital sign,\" usually measured on a subjective scale of 0 to 10.",
+   "fieldname": "pain_level",
+   "fieldtype": "Data",
+   "label": "Pain Level"
+  },
+  {
+   "fieldname": "level_of_consciousness",
+   "fieldtype": "Data",
+   "label": "Level of Consciousness"
+  },
+  {
+   "fieldname": "column_break_sxzs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_created",
+   "fieldtype": "Datetime",
+   "label": "Date Created",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vital",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-06 12:11:55.584347",
+ "modified_by": "Administrator",
+ "module": "Hims",
+ "name": "Vital",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

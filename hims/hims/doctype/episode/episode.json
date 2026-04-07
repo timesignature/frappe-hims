@@ -1,0 +1,204 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "EPI-.########",
+ "creation": "2026-04-06 10:17:16.180644",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_information_section",
+  "patient_no",
+  "patient_name",
+  "dob",
+  "gender",
+  "column_break_dnuu",
+  "admission_type",
+  "admission_date",
+  "status",
+  "ward",
+  "bed",
+  "billing_information_section",
+  "balance",
+  "column_break_oump",
+  "funder",
+  "discahrge_information_section",
+  "discharge_date",
+  "discharge_status",
+  "column_break_bgil",
+  "discharge_comment"
+ ],
+ "fields": [
+  {
+   "fieldname": "patient_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Patient No",
+   "options": "Patient",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "patient_no.full_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name"
+  },
+  {
+   "fetch_from": "patient_no.dob",
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "DOB"
+  },
+  {
+   "fetch_from": "patient_no.gender",
+   "fieldname": "gender",
+   "fieldtype": "Data",
+   "label": "Gender"
+  },
+  {
+   "fieldname": "admission_type",
+   "fieldtype": "Select",
+   "label": "Admission Type",
+   "options": "\nOPD\nIPD",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.admission_type ==='IPD'",
+   "fieldname": "ward",
+   "fieldtype": "Data",
+   "label": "Ward",
+   "mandatory_depends_on": "eval:doc.admission_type ==='IPD'"
+  },
+  {
+   "depends_on": "eval:doc.admission_type ==='IPD'",
+   "fieldname": "bed",
+   "fieldtype": "Data",
+   "label": "Bed",
+   "mandatory_depends_on": "eval:doc.admission_type ==='IPD'"
+  },
+  {
+   "fieldname": "column_break_dnuu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "admission_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Admission Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "general_information_section",
+   "fieldtype": "Section Break",
+   "label": "General Information"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "discahrge_information_section",
+   "fieldtype": "Section Break",
+   "label": "Discahrge Information"
+  },
+  {
+   "fieldname": "discharge_date",
+   "fieldtype": "Datetime",
+   "label": "Discharge Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "discharge_status",
+   "fieldtype": "Select",
+   "label": "Discharge Status",
+   "options": "\nStable\nDeath\nReferred",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_bgil",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "discharge_comment",
+   "fieldtype": "Small Text",
+   "label": "Discharge Comment",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "billing_information_section",
+   "fieldtype": "Section Break",
+   "label": "Billing Information"
+  },
+  {
+   "fieldname": "balance",
+   "fieldtype": "Float",
+   "is_virtual": 1,
+   "label": "Balance"
+  },
+  {
+   "fieldname": "funder",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Funder"
+  },
+  {
+   "fieldname": "column_break_oump",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nOpen\nClosed\nCancelled",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Vital",
+   "link_fieldname": "episode_no"
+  },
+  {
+   "link_doctype": "Clinical Note",
+   "link_fieldname": "episode_no"
+  },
+  {
+   "link_doctype": "Prescription",
+   "link_fieldname": "episode_no"
+  },
+  {
+   "link_doctype": "Sales Invoice",
+   "link_fieldname": "episode_no"
+  }
+ ],
+ "modified": "2026-04-06 19:31:50.074778",
+ "modified_by": "Administrator",
+ "module": "Hims",
+ "name": "Episode",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

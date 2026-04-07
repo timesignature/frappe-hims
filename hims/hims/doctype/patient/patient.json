@@ -1,0 +1,239 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "PAT-.######",
+ "creation": "2026-03-22 19:45:57.198738",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_information_section",
+  "first_name",
+  "last_name",
+  "full_name",
+  "dob",
+  "balance",
+  "column_break_alor",
+  "gender",
+  "national_id",
+  "religion",
+  "clergy",
+  "contact_information_section",
+  "phone",
+  "have_whatsapp",
+  "column_break_upsy",
+  "email",
+  "section_break_hrad",
+  "address",
+  "billing_information_section",
+  "has_medical_aid",
+  "funder",
+  "funder_name",
+  "column_break_fnpb",
+  "funder_phone",
+  "funder_code",
+  "customer_information_section",
+  "customer"
+ ],
+ "fields": [
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "DOB",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Gender",
+   "options": "\nMale\nFemale",
+   "reqd": 1
+  },
+  {
+   "fieldname": "national_id",
+   "fieldtype": "Data",
+   "label": "National ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_alor",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "religion",
+   "fieldtype": "Link",
+   "label": "Religion",
+   "options": "Religion"
+  },
+  {
+   "fieldname": "clergy",
+   "fieldtype": "Link",
+   "label": "Clergy",
+   "options": "Clergy"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "general_information_section",
+   "fieldtype": "Section Break",
+   "label": "General Information"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "contact_information_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Information"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "default": "0",
+   "fieldname": "have_whatsapp",
+   "fieldtype": "Check",
+   "label": "have Whatsapp"
+  },
+  {
+   "fieldname": "column_break_upsy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_hrad",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "billing_information_section",
+   "fieldtype": "Section Break",
+   "label": "Billing Information"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_medical_aid",
+   "fieldtype": "Check",
+   "label": "Has Medical Aid"
+  },
+  {
+   "depends_on": "eval: doc.has_medical_aid === 1",
+   "fieldname": "funder",
+   "fieldtype": "Link",
+   "label": "Funder",
+   "mandatory_depends_on": "eval: doc.has_medical_aid === 1",
+   "options": "Medical Aid"
+  },
+  {
+   "depends_on": "eval: doc.has_medical_aid === 1",
+   "fetch_from": "funder.title",
+   "fieldname": "funder_name",
+   "fieldtype": "Data",
+   "label": "Funder Name"
+  },
+  {
+   "fieldname": "column_break_fnpb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.has_medical_aid === 1",
+   "fetch_from": "funder.phone",
+   "fieldname": "funder_phone",
+   "fieldtype": "Data",
+   "label": "Funder Phone"
+  },
+  {
+   "depends_on": "eval: doc.has_medical_aid === 1",
+   "fetch_from": "funder.funder_code",
+   "fieldname": "funder_code",
+   "fieldtype": "Data",
+   "label": "Funder Code"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "customer_information_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Information"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "balance",
+   "fieldtype": "Float",
+   "is_virtual": 1,
+   "label": "Balance",
+   "precision": "2"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Sales Invoice",
+   "link_fieldname": "customer"
+  },
+  {
+   "link_doctype": "Vital",
+   "link_fieldname": "patient_no"
+  }
+ ],
+ "modified": "2026-04-06 20:09:31.778785",
+ "modified_by": "Administrator",
+ "module": "Hims",
+ "name": "Patient",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
