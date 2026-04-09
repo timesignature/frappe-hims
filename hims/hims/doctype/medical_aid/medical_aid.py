@@ -25,7 +25,7 @@ class MedicalAid(Document):
     def after_insert(self):
         doc = ref("Customer")
         doc.customer_name = self.name
-        doc.customer_type = "Medical Aid"
+        doc.customer_type = "Commercial"
         doc.customer_group = "Commercial"
         doc.save()
 

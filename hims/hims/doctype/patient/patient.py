@@ -41,7 +41,7 @@ class Patient(Document):
     def after_insert(self):
         doc = ref("Customer")
         doc.customer_name = self.name
-        doc.customer_type = "Patient"
+        doc.customer_type = "Individual"
         doc.customer_group = "Individual"
         doc.gender = self.gender
         doc.save()

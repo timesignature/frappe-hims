@@ -14,7 +14,8 @@ frappe.ui.form.on("Episode", {
 
             frappe.route_options = {
                 customer: frm.doc.patient_no,
-                episode_no: frm.doc.name
+                episode_no: frm.doc.name,
+                is_hospital_bill: 1
             }
 
             frappe.set_route('Form', 'Sales Invoice', 'new-sales-invoice')
