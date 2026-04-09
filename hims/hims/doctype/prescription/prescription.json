@@ -61,8 +61,7 @@
    "fieldname": "date_created",
    "fieldtype": "Datetime",
    "label": "Date Created",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "lines_section",
@@ -102,7 +101,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-04-07 09:39:30.581136",
+ "modified": "2026-04-09 17:29:49.402285",
  "modified_by": "Administrator",
  "module": "Hims",
  "name": "Prescription",

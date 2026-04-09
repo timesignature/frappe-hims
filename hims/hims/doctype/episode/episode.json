@@ -97,7 +97,7 @@
    "collapsible": 1,
    "fieldname": "discahrge_information_section",
    "fieldtype": "Section Break",
-   "label": "Discahrge Information"
+   "label": "Discharge Information"
   },
   {
    "fieldname": "discharge_date",
@@ -176,7 +176,7 @@
    "link_fieldname": "episode_no"
   }
  ],
- "modified": "2026-04-06 19:31:50.074778",
+ "modified": "2026-04-09 17:33:44.076817",
  "modified_by": "Administrator",
  "module": "Hims",
  "name": "Episode",

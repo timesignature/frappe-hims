@@ -13,12 +13,10 @@ class Prescription(Document):
 
     if TYPE_CHECKING:
         from frappe.types import DF
-        from hims.hims.doctype.prescription_lines.prescription_lines import (
-            PrescriptionLines,
-        )
+        from hims.hims.doctype.prescription_lines.prescription_lines import PrescriptionLines
 
         amended_from: DF.Link | None
-        date_created: DF.Datetime
+        date_created: DF.Datetime | None
         episode_no: DF.Link
         items: DF.Table[PrescriptionLines]
         notes: DF.SmallText | None
